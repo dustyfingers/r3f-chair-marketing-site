@@ -30,20 +30,15 @@ export default function App() {
                 <Lights />
 
                 <Suspense fallback={null}>
-                    <HTMLContent domContent={domContent} modelPath={'/armchairYellow.gltf'} yPos={250}>
-                        <div className="container">
-                            <h1 className="title">Yellow</h1>
-                        </div>
+                    <HTMLContent bgColor={'#f15946'} domContent={domContent} modelPath={'/armchairYellow.gltf'} yPos={250}>
+
+                        <h1 className="title">Yellow</h1>
                     </HTMLContent>
-                    <HTMLContent domContent={domContent} modelPath={'/armchairGreen.gltf'} yPos={0}>
-                        <div className="container">
-                            <h1 className="title">Green</h1>
-                        </div>
+                    <HTMLContent bgColor={'#571ec1'} domContent={domContent} modelPath={'/armchairGreen.gltf'} yPos={0}>
+                        <h1 className="title">Green</h1>
                     </HTMLContent>
-                    <HTMLContent domContent={domContent} modelPath={'/armchairGray.gltf'} yPos={-250}>
-                        <div className="container">
-                            <h1 className="title">Gray</h1>
-                        </div>
+                    <HTMLContent bgColor={'#636567'} domContent={domContent} modelPath={'/armchairGray.gltf'} yPos={-250}>
+                        <h1 className="title">Gray</h1>
                     </HTMLContent>
                 </Suspense>
 

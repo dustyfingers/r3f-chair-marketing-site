@@ -1,14 +1,20 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Html } from 'drei';
 import { useFrame } from 'react-three-fiber';
+import { useInView } from "react-intersection-observer";
 
 import { Section } from './section';
 import Model from './model';
 
 
-const HTMLContent = ({ children, modelPath, yPos, domContent }) => {
+const HTMLContent = ({ bgColor, children, modelPath, yPos, domContent }) => {
 
     const ref = useRef();
+    const [refItem, inView] = useInView({ threshold: 0 });
+
+    useEffect(() => {
+        inView && (document.body.style.background = bgColor)
+    })
 
     // rotate mesh position every frame
     useFrame(() => (ref.current.rotation.y += 0.01))
@@ -20,7 +26,9 @@ const HTMLContent = ({ children, modelPath, yPos, domContent }) => {
                     <Model modelPath={modelPath} />
                 </mesh>
                 <Html portal={domContent} fullscreen>
-                    {children}
+                    <div className="container" ref={refItem}>
+                        {children}
+                    </div>
                 </Html>
             </group>
         </Section>
