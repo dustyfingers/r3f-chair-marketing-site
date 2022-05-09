@@ -29,6 +29,8 @@ body,
   width: 100vw;
   height: 100vh;
   overflow: auto;
+  // hide horizontal scroll - not centered all of the way atm and blows out side of page 
+  overflow-x: hidden;
 }
 
 .container {

@@ -1,8 +1,8 @@
 import React from 'react';
 import { useGLTFLoader } from 'drei';
 
-const Model = () => {
-    const gltf = useGLTFLoader('/armchairYellow.gltf', true);
+const Model = ({ modelPath }) => {
+    const gltf = useGLTFLoader(modelPath, true);
     return <primitive object={gltf.scene} dispose={null} />;
 }
 
